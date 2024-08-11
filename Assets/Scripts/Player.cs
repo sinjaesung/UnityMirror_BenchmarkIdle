@@ -38,13 +38,11 @@ public class Player : NetworkBehaviour
         {
             if (Vector3.Distance(tf.position, destination) <= 0.01f)
             {
-                Debug.Log("Player AutoMove> moving end");
                 moving = false;
             }
             else
             {
                 tf.position = Vector3.MoveTowards(tf.position, destination, autoSpeed * Time.deltaTime);
-                Debug.Log("Player AutoMove> MoveTowards");
             }
         }
         else
@@ -61,7 +59,6 @@ public class Player : NetworkBehaviour
                 // set destination on random pos in a circle around start.
                 // (don't want to wander off)
                 destination = start + dir * movementDistance;
-                Debug.Log("Player AutoMove> moving Destination"+destination);
                 moving = true;
             }
         }
